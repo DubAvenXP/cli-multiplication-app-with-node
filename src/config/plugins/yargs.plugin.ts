@@ -33,11 +33,11 @@ export const yarg = yargs(hideBin(process.argv))
     describe: 'Destination folder of the file to save',
   })
   .check((argv, _options) => {
-    if (isNaN(argv.b)) throw 'Error: The base must be a number';
-    if (argv.b < 0) throw 'Error: The base must be a positive number';
+    if (isNaN(argv.b)) throw new Error('The base must be a number');
+    if (argv.b < 0) throw new Error('The base must be a positive number');
 
-    if (isNaN(argv.l)) throw 'Error: The limit must be a number';
-    if (argv.l < 0) throw 'Error: The limit must be a positive number';
+    if (isNaN(argv.l)) throw new Error('The limit must be a number');
+    if (argv.l < 0) throw new Error('The limit must be a positive number');
 
     return true;
   })
