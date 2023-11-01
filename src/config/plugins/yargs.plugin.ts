@@ -20,7 +20,19 @@ export const yarg = yargs(hideBin(process.argv))
     default: false,
     describe: 'Show the multiplication table in the console',
   })
-  .check((argv, options) => {
+  .option('n', {
+    alias: 'name',
+    type: 'string',
+    default: 'table',
+    describe: 'Name of the file to save',
+  })
+  .option('d', {
+    alias: 'destination',
+    type: 'string',
+    default: 'outputs',
+    describe: 'Destination folder of the file to save',
+  })
+  .check((argv, _options) => {
     if (isNaN(argv.b)) throw 'Error: The base must be a number';
     if (argv.b < 0) throw 'Error: The base must be a positive number';
 
