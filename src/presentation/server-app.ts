@@ -11,6 +11,8 @@ interface RunOptions {
 
 export class ServerApp {
   static run({ base, limit, showTable, fileDestination, fileName }: RunOptions) {
+    console.log('Running ServerApp');
+
     const table = new CreateTable().execute({ base, limit });
     const saved = new SaveFile()
       .execute({
@@ -21,6 +23,6 @@ export class ServerApp {
 
     if (showTable) console.log(table);
 
-    saved ? console.log('File saved successfully') : console.log('Error saving file');
+    saved ? console.log('File saved successfully') : console.error('Error saving file');
   }
 }
